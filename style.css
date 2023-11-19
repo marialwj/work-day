@@ -1,6 +1,7 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: monospace;
   font-size: 16px;
+  text-align: center;
 }
 
 textarea {
@@ -11,6 +12,7 @@ textarea {
   border-left: 1px solid black;
   padding: 10px;
 }
+
 
 .description {
   white-space: pre-wrap;
@@ -36,12 +38,12 @@ textarea {
 }
 
 .present {
-  background-color: #ff6961;
+  background-color: #ce3e37;
   color: white;
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #74a674;
   color: white;
 }
 
