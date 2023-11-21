@@ -1,10 +1,6 @@
 
-  // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-  // the code isn't run until the browser has finished rendering all the elements
-  // in the html.
-  var localeSettings = {};
+var localeSettings = {};
   dayjs.locale(localeSettings);
-  // Wait until the DOM is fully loaded before executing the code inside the function.
   $(function () {
     // Get the current hour of the day using the dayjs library.
     var currentHour = dayjs().format('H');
@@ -17,7 +13,7 @@
         $(this).toggleClass('future', blockHour > currentHour);
       });
     }
-  // The  function below will save the user's input in a textarea to localStorage - only when the corresponding save button has been clicked.
+  // The  function below will save the user's input in a textarea to localStorage 
     function textEntry() {
       $('.saveBtn').on('click', function() {
         var key = $(this).parent().attr('id');
@@ -28,7 +24,9 @@
    // The function below will refresh the color of each time block based on whether it's in the past(grey), present(red), or future(green) relative to the current time. 
     function refreshColor() {
       $('.time-block').each(function() {
-        var blockHour = parseInt(this.id);
+        console.log("this.id", this.id)
+        var blocknumber = this.id.split("-")[1]
+        var blockHour = parseInt(blocknumber);
         if (blockHour == currentHour) {
           $(this).removeClass('past future').addClass('present');
         } else if (blockHour < currentHour) {
@@ -45,8 +43,6 @@
       $(this).children('.description').val(value);
     });
   
-    // Please note: this is my favourtie part of the module - I absolutly love the display of current date and time especially 
-    // since the the time referesed every second - you can find this among the header of the page!
     function updateTime() {
       var dateElement = $('#date');
       var timeElement = $('#time');
@@ -55,7 +51,7 @@
       dateElement.text(currentDate);
       timeElement.text(currentTime);
     }
-    // Call the three main functions to set up the page.
+    
     hourlyColor();
     textEntry();                
     refreshColor();
